@@ -4,7 +4,7 @@ import ProductsOtpion from './ProductsOtpion';
 const Products = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('products.json')
+        fetch('http://localhost:5000/products')
             .then(res => res.json())
             .then(data => {
                 setProducts(data)
@@ -15,7 +15,7 @@ const Products = () => {
         <div className='mt-16 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
             {
                 products.map(product => <ProductsOtpion
-                    key={product.id}
+                    key={product._id}
                     product={product}
                 >
                 </ProductsOtpion>)
