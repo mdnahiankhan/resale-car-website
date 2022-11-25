@@ -3,6 +3,7 @@ import Main from "../../Layout/Main/Main";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Category from "../../Pages/Products/Category/Category";
+import Register from "../../Pages/Register/Register";
 
 const router = createBrowserRouter([
     {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
             {
                 path: '/login',
                 element: <Login></Login>
+            },
+            {
+                path: '/register',
+                element: <Register></Register>
             },
             {
                 path: '/category/:id',
