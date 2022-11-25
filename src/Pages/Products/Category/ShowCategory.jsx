@@ -1,7 +1,8 @@
 import React from 'react';
 
 const ShowCategory = ({ option }) => {
-    const { title, image_url, total_view } = option
+    const { title, image_url, total_view, original_price, resale_price, uses, author } = option;
+    console.log(option);
     return (
         <div className="max-w-xl p-6 rounded-md shadow-md dark:bg-gray-200 dark:text-gray-900">
             <img src={image_url} alt="" className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
@@ -9,7 +10,10 @@ const ShowCategory = ({ option }) => {
                 <span className="block text-xs font-medium tracking-widest uppercase dark:text-violet-400">totalview: {total_view}</span>
                 <h2 className="text-xl font-semibold tracking-wide">{title}</h2>
             </div>
-            <p className="dark:text-gray-100"></p>
+            <p className="dark:text-gray-900">Orignal Price :${original_price}</p>
+            <p className="dark:text-gray-900">Resale Price :${resale_price}</p>
+            <p className="dark:text-gray-900">Used :{uses} year</p>
+            <p className="dark:text-gray-900">Posted :{author.published_date}</p>
             <button className='btn btn-primary'>Buy Now</button>
         </div>
     );
