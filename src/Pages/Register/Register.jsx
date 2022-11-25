@@ -1,10 +1,21 @@
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form'
+import { useContext } from 'react';
+import { AuthContext } from '../../contexts/AuthProvider';
 
 const Register = () => {
     const { register, handleSubmit } = useForm();
+    const { createUser } = useContext(AuthContext);
     const signUphandler = data => {
         console.log(data);
+        createUser(data.email, data.password)
+            .then(result => {
+                const user = result.user
+                console.log(user);
+            })
+            .catch(error => {
+                console.error(error);
+            })
     }
     return (
         <div className='h-[800px] flex justify-center items-center'>
@@ -32,7 +43,7 @@ const Register = () => {
                     <label className="label">
                         <span className="label-text">forgot password ?</span>
                     </label>
-                    <input className='btn btn-accent w-full mt-2' value='Login' type="submit" />
+                    <input className='btn btn-accent w-full mt-2' value='SignUp' type="submit" />
                 </form>
                 <p>Have an account to resales car ? please <Link to='/login' className='text-white'>Login your account</Link></p>
                 <p className="text-xs text-center sm:px-6 dark:text-gray-400">Don't have an account?
