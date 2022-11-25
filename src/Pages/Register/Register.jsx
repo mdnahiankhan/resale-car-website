@@ -1,20 +1,31 @@
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form'
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { AuthContext } from '../../contexts/AuthProvider';
+import toast from 'react-hot-toast'
 
 const Register = () => {
     const { register, handleSubmit } = useForm();
-    const { createUser } = useContext(AuthContext);
+    const { createUser, updateUser } = useContext(AuthContext);
+    const [signUperror, setSignUperror] = useState('')
     const signUphandler = data => {
         console.log(data);
+        setSignUperror('')
         createUser(data.email, data.password)
             .then(result => {
                 const user = result.user
                 console.log(user);
+                toast('User created Successfully')
+                const userInfo = {
+                    displayName: data.name
+                }
+                updateUser(userInfo)
+                    .then(() => { })
+                    .catch(error => console.error(error))
             })
             .catch(error => {
                 console.error(error);
+                setSignUperror(error.message)
             })
     }
     return (
@@ -44,6 +55,7 @@ const Register = () => {
                         <span className="label-text">forgot password ?</span>
                     </label>
                     <input className='btn btn-accent w-full mt-2' value='SignUp' type="submit" />
+                    {signUperror && <p className='text-red-500'>{signUperror}</p>}
                 </form>
                 <p>Have an account to resales car ? please <Link to='/login' className='text-white'>Login your account</Link></p>
                 <p className="text-xs text-center sm:px-6 dark:text-gray-400">Don't have an account?
