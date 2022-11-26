@@ -17,7 +17,7 @@ const ShowCategory = ({ option, setCars }) => {
                 htmlFor="booking-modal"
                 className="btn btn-primary text-center"
                 onClick={() => setCars(option)}
-            > Book Now</label>
+            > Orders Now</label>
         </div>
     );
 };
