@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../../../contexts/AuthProvider';
 
 const BookingModal = ({ cars, setCars }) => {
     const { title, resale_price } = cars;
+    const { user } = useContext(AuthContext)
     const handleBooking = event => {
         event.preventDefault();
         const form = event.target;
@@ -15,7 +17,7 @@ const BookingModal = ({ cars, setCars }) => {
             name,
             email,
             car_names: cars,
-            car: price,
+            carPrice: price,
             phone,
             location
         }
@@ -30,9 +32,9 @@ const BookingModal = ({ cars, setCars }) => {
                     <label htmlFor="booking-modal" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="text-lg font-bold">{title}</h3>
                     <form onSubmit={handleBooking} className='grid grid-cols-1 gap-3 mt-6'>
-                        <input type="name" name='name' placeholder="your name" className="input input-bordered w-full " />
-                        <input type="email" required name='email' placeholder="your Email" className="input input-bordered w-full " />
-                        <input type="text" required disabled value={title} name='cars' placeholder="item name" className="input input-bordered w-full " />
+                        <input type="name" name='name' readOnly defaultValue={user?.displayName} placeholder="your name" className="input input-bordered w-full " />
+                        <input type="email" required name='email' readOnly defaultValue={user?.email} placeholder="your Email" className="input input-bordered w-full " />
+                        <input type="text" required disabled defaultValue={title} name='cars' placeholder="item name" className="input input-bordered w-full " />
                         <input type="text" disabled value={resale_price} name='price' placeholder="items price" className="input input-bordered w-full " />
                         <input type="text" required name='phone' placeholder="enter your phone number" className="input input-bordered w-full " />
                         <input type="text" required name='location' placeholder="enter your meeting location" className="input input-bordered w-full " />
