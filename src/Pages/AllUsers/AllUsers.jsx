@@ -12,7 +12,7 @@ const AllUsers = () => {
     })
     return (
         <div>
-            <h1>All users</h1>
+            <h1 className='text-3xl font-bold mb-6'>All Buyers</h1>
             <div className="overflow-x-auto">
                 <table className="table w-full">
                     <thead>
@@ -20,7 +20,7 @@ const AllUsers = () => {
                             <th></th>
                             <th>Name</th>
                             <th>Email</th>
-                            <th>Favorite Color</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -29,7 +29,7 @@ const AllUsers = () => {
                                 <th>{i + 1}</th>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td>Blue</td>
+                                <td><button className='btn btn-warning btn-sm'>Delete</button></td>
                             </tr>)
                         }
                     </tbody>

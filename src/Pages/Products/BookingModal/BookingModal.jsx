@@ -3,7 +3,7 @@ import toast from 'react-hot-toast';
 import { AuthContext } from '../../../contexts/AuthProvider';
 
 const BookingModal = ({ cars, setCars }) => {
-    const { title, resale_price } = cars;
+    const { title, resale_price, image_url } = cars;
     const { user } = useContext(AuthContext)
     const handleBooking = event => {
         event.preventDefault();
@@ -13,14 +13,16 @@ const BookingModal = ({ cars, setCars }) => {
         const cars = form.cars.value;
         const price = form.price.value;
         const phone = form.phone.value;
-        const location = form.location.value
+        const location = form.location.value;
+        const imageUrl = form.imageUrl.value;
         const booking = {
             name,
             email,
             car_names: cars,
             carPrice: price,
             phone,
-            location
+            location,
+            imageUrl
         }
         fetch('http://localhost:5000/bookings', {
             method: 'POST',
@@ -53,9 +55,10 @@ const BookingModal = ({ cars, setCars }) => {
                         <input type="name" name='name' readOnly defaultValue={user?.displayName} placeholder="your name" className="input input-bordered w-full " />
                         <input type="email" required name='email' readOnly defaultValue={user?.email} placeholder="your Email" className="input input-bordered w-full " />
                         <input type="text" required disabled defaultValue={title} name='cars' placeholder="item name" className="input input-bordered w-full " />
-                        <input type="text" disabled value={resale_price} name='price' placeholder="items price" className="input input-bordered w-full " />
+                        <input type="text" disabled defaultValue={resale_price} name='price' placeholder="items price" className="input input-bordered w-full " />
                         <input type="text" required name='phone' placeholder="enter your phone number" className="input input-bordered w-full " />
                         <input type="text" required name='location' placeholder="enter your meeting location" className="input input-bordered w-full " />
+                        <input type="text" required name='imageUrl' defaultValue={image_url} disabled placeholder="enter your meeting location" className="input input-bordered w-full " />
                         <br />
                         <input className='w-full  btn btn-accent' type="submit" value='submit' />
 

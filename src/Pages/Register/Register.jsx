@@ -43,6 +43,9 @@ const Register = () => {
                 updateUser(userInfo)
                     .then(() => {
                         saveUser(data.name, data.email)
+                        if (data.email && data.seller) {
+                            saveSellers(data.name, data.email, data.seller)
+                        }
                     })
                     .catch(error => console.error(error))
             })
@@ -68,6 +71,23 @@ const Register = () => {
             })
     }
 
+    const saveSellers = (name, email, seller) => {
+        const sellers = { name, email, seller };
+        fetch('http://localhost:5000/sellers', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(sellers)
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+            })
+    }
+
+
+
     return (
         <div className='h-[800px] flex justify-center items-center'>
             <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-400 dark:text-gray-900">
@@ -79,6 +99,13 @@ const Register = () => {
                         </label>
                         <input type='text' {...register("name")} className="input input-bordered w-full max-w-xs" />
                     </div>
+                    <div className="form-control w-full max-w-xs">
+                        <label className="label">
+                            <span className="label-text font-serif font-bold">are you a seller plese wrote your industry name.User can ignore it.</span>
+                        </label>
+                        <input type='text' {...register("seller")} className="input input-bordered w-full max-w-xs" />
+                    </div>
+
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
                             <span className="label-text">Email</span>
