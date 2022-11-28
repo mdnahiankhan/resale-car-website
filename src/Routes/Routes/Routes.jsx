@@ -2,10 +2,12 @@ import { createBrowserRouter } from "react-router-dom";
 import AddProducts from "../../DashBoard/AddProducts/AddProducts";
 import ManageAddProducts from "../../DashBoard/ManageAddProducts/ManageAddProducts";
 import MyOrders from "../../DashBoard/MyOrders/MyOrders";
+import Payment from "../../DashBoard/Payment/Payment";
 import Allsellers from "../../DashBoard/Sellers/Allsellers";
 import DashBoardLayout from "../../Layout/DashBoardLayout";
 import Main from "../../Layout/Main/Main";
 import AllUsers from "../../Pages/AllUsers/AllUsers";
+import ErrorPage from "../../Pages/ErrorPage/ErrorPage";
 import Home from "../../Pages/Home/Home";
 import Login from "../../Pages/Login/Login";
 import Category from "../../Pages/Products/Category/Category";
@@ -18,6 +20,7 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <Main></Main>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
@@ -45,6 +48,7 @@ const router = createBrowserRouter([
     {
         path: '/dashboard',
         element: <PrivateRoute><DashBoardLayout></DashBoardLayout></PrivateRoute>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/dashboard',
@@ -66,6 +70,11 @@ const router = createBrowserRouter([
                 path: '/dashboard/manageAddproduct',
                 element: <AdminRoutes> <ManageAddProducts></ManageAddProducts></AdminRoutes>
             },
+            {
+                path: '/dashboard/payment/:id',
+                element: <Payment></Payment>,
+                loader: ({ params }) => fetch(`http://localhost:5000/bookings/${params.id}`)
+            }
         ]
     }
 ])

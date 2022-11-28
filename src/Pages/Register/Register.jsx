@@ -101,9 +101,14 @@ const Register = () => {
                     </div>
                     <div className="form-control w-full max-w-xs">
                         <label className="label">
-                            <span className="label-text font-serif font-bold">are you a seller plese wrote your industry name.User can ignore it.</span>
+                            <span className="label-text ">Products Validity</span>
                         </label>
-                        <input type='text' {...register("seller")} className="input input-bordered w-full max-w-xs" />
+                        <select
+                            {...register("seller")}
+                            className="select input-bordered w-full max-w-xs">
+                            <option disabled selected>Are you a seller?</option>
+                            <option>seller</option>
+                        </select>
                     </div>
 
                     <div className="form-control w-full max-w-xs">
