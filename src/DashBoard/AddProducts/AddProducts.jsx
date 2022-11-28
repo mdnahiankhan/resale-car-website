@@ -12,7 +12,7 @@ const AddProducts = () => {
     const { data: productsnames, isLoading } = useQuery({
         queryKey: ['productsName'],
         queryFn: async () => {
-            const res = await fetch('http://localhost:5000/productsName')
+            const res = await fetch('https://resale-website-server-ten.vercel.app/productsName')
             const data = await res.json();
             return data;
         }
@@ -35,7 +35,7 @@ const AddProducts = () => {
             location: data.location,
             purchaseyear: data.purchaseyear
         }
-        fetch('http://localhost:5000/addproducts', {
+        fetch('https://resale-website-server-ten.vercel.app/addproducts', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

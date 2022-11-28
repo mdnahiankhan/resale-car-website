@@ -5,7 +5,7 @@ import { AuthContext } from '../../contexts/AuthProvider';
 
 const Allsellers = () => {
     const { user } = useContext(AuthContext);
-    const url = `http://localhost:5000/sellers?email=${user?.email}`
+    const url = `https://resale-website-server-ten.vercel.app/sellers?email=${user?.email}`
     const { data: sellers = [], refetch } = useQuery({
         queryKey: ['sellers', user?.email],
         queryFn: async () => {
@@ -16,7 +16,7 @@ const Allsellers = () => {
     })
 
     const handlemakeadmin = id => {
-        fetch(`http://localhost:5000/sellers/admin/${id}`, {
+        fetch(`https://resale-website-server-ten.vercel.app/sellers/admin/${id}`, {
             method: 'PUT',
             headers: {
                 authorization: `bearer ${localStorage.getItem('accessToken')}`
@@ -31,6 +31,32 @@ const Allsellers = () => {
 
             })
     }
+    const handleDeleteSellers = seller => {
+        fetch(`https://resale-website-server-ten.vercel.app/sellers/${seller._id}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                refetch();
+            })
+    }
+
+    const handleverified = id => {
+        fetch(`https://resale-website-server-ten.vercel.app/sellers/verified/${id}`, {
+            method: 'PUT',
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                refetch();
+            })
+    }
+
+
 
     return (
         <div>
@@ -45,17 +71,25 @@ const Allsellers = () => {
                             <th>Email Adress</th>
                             <th>Shop Name</th>
                             <th>Sellers Status</th>
+                            <th>Delete</th>
                             <th>Admin</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            sellers.map((seller, i) => <tr key={seller._id}>
+                            sellers?.map((seller, i) => <tr key={seller._id}>
                                 <th>{i + 1}</th>
                                 <td>{seller.name}</td>
                                 <td>{seller.email}</td>
                                 <td>{seller.seller}</td>
-                                <td><button className='btn btn-warning btn-sm'>UnVerify</button></td>
+                                <td>{
+                                    <button onClick={() => handleverified(seller._id)} className='btn btn-warning btn-sm'>{seller.status ? seller.status : 'verify'}</button>
+
+                                }
+
+
+                                </td>
+                                <td><button className='btn btn-accent' onClick={() => handleDeleteSellers(seller)}>Delete</button></td>
                                 <td>{seller?.role !== "admin" && <button onClick={() => handlemakeadmin(seller._id)} className='btn btn-accent btn-sm'>Make Admin</button>}</td>
                             </tr>)
                         }

@@ -8,11 +8,11 @@ const CheckoutForm = ({ data }) => {
     const [transectionId, setTransectionId] = useState('');
     const [clientSecret, setClientSecret] = useState("");
     const stripe = useStripe();
-    const { carPrice, name, email } = data;
+    const { carPrice, name, email, _id } = data;
 
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://resale-website-server-ten.vercel.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -68,8 +68,30 @@ const CheckoutForm = ({ data }) => {
             return;
         }
         if (paymentIntent.status === "succeeded") {
-            setSuccess('Your payments completed')
-            setTransectionId(paymentIntent.id);
+            const payment = {
+                carPrice,
+                transectionId: paymentIntent.id,
+                email,
+                dataId: _id
+            }
+            fetch('https://resale-website-server-ten.vercel.app/payments', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json',
+                    authorization: `bearer ${localStorage.getItem('accessToken')}`
+                },
+                body: JSON.stringify(payment)
+
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    if (data.insertedId) {
+                        setSuccess('Congratulations Your payments completed')
+                        setTransectionId(paymentIntent.id);
+                    }
+                })
+
         }
         setProcessing(false);
     }

@@ -5,11 +5,12 @@ import { useLoaderData } from 'react-router-dom';
 import CheckoutForm from './CheckoutForm';
 
 const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_PK);
-console.log(stripePromise);
+
 
 const Payment = () => {
     const data = useLoaderData();
     const { car_names, carPrice, } = data;
+
     return (
         <div>
             <h1 className='text-3xl mb-5'>Payment for {car_names}</h1>

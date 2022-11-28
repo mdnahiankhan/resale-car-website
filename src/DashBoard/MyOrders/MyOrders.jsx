@@ -1,13 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
 
 const MyOrders = () => {
     const { user } = useContext(AuthContext);
-    const url = `http://localhost:5000/bookings?email=${user?.email}`
+    const url = `https://resale-website-server-ten.vercel.app/bookings?email=${user?.email}`
 
-    const { data: bookings = [] } = useQuery({
+    const { data: bookings = [], refetch, isLoading } = useQuery({
         queryKey: ['bookings', user?.email],
         queryFn: async () => {
             const res = await fetch(url, {
@@ -19,8 +20,20 @@ const MyOrders = () => {
             return data;
         }
     })
-
-
+    const handleMyOrder = booking => {
+        fetch(`https://resale-website-server-ten.vercel.app/bookings/${booking._id}`, {
+            method: 'DELETE',
+            headers: {
+                authorization: `bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                toast.success('Your Selected Products Delete Successfully')
+                refetch();
+            })
+    }
 
     return (
         <div>
@@ -37,11 +50,12 @@ const MyOrders = () => {
                             <th>Car Name</th>
                             <th>Price</th>
                             <th>Payment</th>
+                            <th>Delete Status</th>
                         </tr>
                     </thead>
                     <tbody>
-                        {
-                            bookings.map((booking, i) => <tr key={booking._id} >
+                        {bookings &&
+                            bookings?.map((booking, i) => <tr key={booking._id} >
                                 <th>{i + 1}</th>
                                 <td><div className="avatar">
                                     <div className="w-24 rounded">
@@ -55,14 +69,15 @@ const MyOrders = () => {
                                     {
                                         booking.carPrice && !booking.paid &&
                                         <Link to={`/dashboard/payment/${booking._id}`}>
-                                            <button className='btn btn-sm btn-accent'>Pay</button>
+                                            <button className='btn btn-sm btn-accent '>Pay</button>
                                         </Link>
                                     }
                                     {
                                         booking.carPrice && booking.paid &&
-                                        <button className='btn btn-sm btn-success'>Paid</button>
+                                        <button className='text-green-500'>Paid</button>
                                     }
                                 </td>
+                                <td><button onClick={() => handleMyOrder(booking)} className='btn btn-accent'>Delete</button></td>
                             </tr>)
                         }
                     </tbody>

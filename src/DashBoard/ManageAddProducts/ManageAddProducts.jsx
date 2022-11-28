@@ -16,7 +16,7 @@ const ManageAddProducts = () => {
         queryKey: ['addproducts'],
         queryFn: async () => {
             try {
-                const res = await fetch('http://localhost:5000/addproducts', {
+                const res = await fetch('https://resale-website-server-ten.vercel.app/addproducts', {
                     headers: {
                         authorization: `bearer ${localStorage.getItem('accessToken')}`
                     }
@@ -30,7 +30,7 @@ const ManageAddProducts = () => {
     })
 
     const deleteproducts = product => {
-        fetch(`http://localhost:5000/addproducts/${product._id}`, {
+        fetch(`https://resale-website-server-ten.vercel.app/addproducts/${product._id}`, {
             method: 'DELETE',
             headers: {
                 authorization: `beare ${localStorage.getItem('accessToken')}`
@@ -69,7 +69,7 @@ const ManageAddProducts = () => {
                     </thead>
                     <tbody>
                         {
-                            addproducts.map((product, i) => <tr key={product._id}>
+                            addproducts?.map((product, i) => <tr key={product._id}>
                                 <th>{i + 1}</th>
                                 <td>{product.name}</td>
                                 <td>{product.condition}</td>

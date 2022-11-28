@@ -57,7 +57,7 @@ const Register = () => {
 
     const saveUser = (name, email) => {
         const user = { name, email };
-        fetch('http://localhost:5000/users', {
+        fetch('https://resale-website-server-ten.vercel.app/users', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -73,7 +73,7 @@ const Register = () => {
 
     const saveSellers = (name, email, seller) => {
         const sellers = { name, email, seller };
-        fetch('http://localhost:5000/sellers', {
+        fetch('https://resale-website-server-ten.vercel.app/sellers', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -106,7 +106,7 @@ const Register = () => {
                         <select
                             {...register("seller")}
                             className="select input-bordered w-full max-w-xs">
-                            <option disabled selected>Are you a seller?</option>
+                            <option disabled hidden selected>Are You a seller ?</option>
                             <option>seller</option>
                         </select>
                     </div>
