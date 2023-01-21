@@ -16,7 +16,7 @@ const Products = () => {
     return (
         <div>
             <h1 className='mt-10 text-center text-4xl font-bold'>All Luxury Car Categories</h1>
-            <div className='mt-16 grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
+            <div className='mt-16 grid gap-5 grid-cols-1 md:grid-cols-2 lg:grid-cols-3'>
                 {
                     products.map(product => <ProductsOtpion
                         key={product._id}

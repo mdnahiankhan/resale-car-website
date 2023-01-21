@@ -60,7 +60,7 @@ const Allsellers = () => {
 
     return (
         <div>
-            <h1 className='text-3xl font-bold mb-6'>This is all sellers{sellers.length}</h1>
+            <h1 className='text-3xl font-bold mb-6'>Admin Can see all sellers{sellers.length}</h1>
             <div className="overflow-x-auto">
                 <table className="table w-full">
 
@@ -86,8 +86,6 @@ const Allsellers = () => {
                                     <button onClick={() => handleverified(seller._id)} className='btn btn-warning btn-sm'>{seller.status ? seller.status : 'verify'}</button>
 
                                 }
-
-
                                 </td>
                                 <td><button className='btn btn-accent' onClick={() => handleDeleteSellers(seller)}>Delete</button></td>
                                 <td>{seller?.role !== "admin" && <button onClick={() => handlemakeadmin(seller._id)} className='btn btn-accent btn-sm'>Make Admin</button>}</td>

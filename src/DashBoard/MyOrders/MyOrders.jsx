@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthProvider';
+import Loading from '../../Shared/Loading/Loading';
 
 const MyOrders = () => {
     const { user } = useContext(AuthContext);
@@ -34,7 +35,9 @@ const MyOrders = () => {
                 refetch();
             })
     }
-
+    if (isLoading) {
+        return <Loading></Loading>
+    }
     return (
         <div>
             <h3 className='text-3xl font-bold mb-6'>My Orders</h3>
@@ -59,12 +62,12 @@ const MyOrders = () => {
                                 <th>{i + 1}</th>
                                 <td><div className="avatar">
                                     <div className="w-24 rounded">
-                                        <img src={booking.imageUrl} alt="" />
+                                        <img src={booking?.imageUrl} alt="" />
                                     </div>
                                 </div></td>
-                                <td>{booking.name}</td>
-                                <td>{booking.car_names}</td>
-                                <td>${booking.carPrice}</td>
+                                <td>{booking?.name}</td>
+                                <td>{booking?.car_names}</td>
+                                <td>${booking?.carPrice}</td>
                                 <td>
                                     {
                                         booking.carPrice && !booking.paid &&

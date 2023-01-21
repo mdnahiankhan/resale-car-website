@@ -5,7 +5,7 @@ const ProductsOtpion = ({ product }) => {
     const { img, name, id } = product;
     return (
         <div className="card w-96 bg-base-100 shadow-xl image-full">
-            <figure><img src={img} alt="Shoes" /></figure>
+            <figure><img src={img} alt="Car" /></figure>
             <div className="card-body">
                 <h2 className="card-title">{name}</h2>
                 <p>Here the luxury brand .Choose your best brand what you want to choice.</p>

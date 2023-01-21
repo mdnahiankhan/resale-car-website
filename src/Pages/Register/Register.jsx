@@ -43,7 +43,7 @@ const Register = () => {
                 updateUser(userInfo)
                     .then(() => {
                         saveUser(data.name, data.email)
-                        if (data.email && data.seller) {
+                        if (data.seller) {
                             saveSellers(data.name, data.email, data.seller)
                         }
                     })
@@ -87,7 +87,6 @@ const Register = () => {
     }
 
 
-
     return (
         <div className='h-[800px] flex justify-center items-center'>
             <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-400 dark:text-gray-900">
@@ -104,10 +103,10 @@ const Register = () => {
                             <span className="label-text ">Products Validity</span>
                         </label>
                         <select
-                            {...register("seller")}
                             className="select input-bordered w-full max-w-xs">
-                            <option disabled hidden selected>Are You a seller ?</option>
-                            <option>seller</option>
+                            <option disabled selected>Are You a seller ?</option>
+                            <option {...register('Buyer')}>Buyer</option>
+                            <option {...register("seller")}>Seller</option>
                         </select>
                     </div>
 
