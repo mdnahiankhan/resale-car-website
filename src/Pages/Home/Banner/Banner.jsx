@@ -5,8 +5,8 @@ import car2 from '../../../assets/car.3.jpg';
 import car3 from '../../../assets/car.4.jpg'
 const Banner = () => {
     return (
-        <div>
-            <div className="carousel w-full">
+        <div className='p-4'>
+            <div className="carousel w-full rounded-xl">
                 <div id="slide1" className="carousel-item relative w-full">
                     <img src={car} alt='' className="w-full" />
                     <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">

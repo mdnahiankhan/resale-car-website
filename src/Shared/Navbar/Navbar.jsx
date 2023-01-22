@@ -16,9 +16,9 @@ const Navbar = () => {
         {user?.uid ?
             <>
                 <li><Link to='/dashboard'>DashBoard</Link></li>
-                <li><button onClick={handleLogOut} >Sign Out</button></li>
+                <li><button className='btn btn-accent rounded-lg' onClick={handleLogOut} >Sign Out</button></li>
             </> :
-            <li><Link to='/login'>Login</Link></li>}
+            <li><button className='btn btn-accent'><Link to='/login rounded-lg'>Login</Link></button></li>}
     </React.Fragment>
     return (
         <div className="navbar bg-base-100 justify-between">
@@ -32,16 +32,13 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <img className="flex items-center justify-center w-12 h-12 rounded-full" src={image} alt="" />
-                <Link className="btn btn-ghost normal-case text-xl"> Resales Car Website</Link>
+                <Link className="btn btn-ghost normal-case text-xl"> Resales Car Portal</Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal p-0">
                     {menuItems}
                 </ul>
             </div>
-            <label htmlFor="dashboard-drawer" tabIndex={2} className="btn btn-ghost lg:hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
-            </label>
         </div>
     );
 };
