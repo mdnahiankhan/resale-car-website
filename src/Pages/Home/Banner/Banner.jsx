@@ -1,41 +1,44 @@
-import React from 'react';
-import car from '../../../assets/car.jpg';
-import car1 from '../../../assets/car.2.jpg';
-import car2 from '../../../assets/car.3.jpg';
-import car3 from '../../../assets/car.4.jpg'
+import React, { useState } from 'react';
+import "../../../Shared/css/style.css"
+import { DayPicker } from 'react-day-picker';
+import { format } from 'date-fns';
+
 const Banner = () => {
+
+    const [selectedDate, setSelectedDate] = useState(new Date());
+
+
+
     return (
-        <div className='p-4'>
-            <div className="carousel w-full rounded-xl">
-                <div id="slide1" className="carousel-item relative w-full">
-                    <img src={car} alt='' className="w-full" />
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide4" className="btn btn-circle">❮</a>
-                        <a href="#slide2" className="btn btn-circle">❯</a>
+        <div className=''>
+            <section>
+                <div className="car-image">
+                    <div className=" container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 dark:text-gray-100">
+                        <h1 className="text-5xl font-bold leading-none sm:text-6xl xl:max-w-3xl dark:text-gray-100">The Best Resales Car website wait for you which car you want.</h1>
+                        <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl dark:text-gray-100">Cupiditate minima voluptate temporibus quia? Architecto beatae esse ab amet vero eaque explicabo!</p>
+                        <div className="flex flex-wrap justify-center">
+                            <button type="button" className="px-8 py-3 m-2 text-lg font-semibold rounded dark:bg-gray-800 dark:text-gray-50">Get started</button>
+                            <button type="button" className="px-8 py-3 m-2 text-lg border rounded dark:border-gray-700 dark:text-gray-100">Learn more</button>
+                        </div>
                     </div>
                 </div>
-                <div id="slide2" className="carousel-item relative w-full">
-                    <img src={car1} alt='' className="w-full" />
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide1" className="btn btn-circle">❮</a>
-                        <a href="#slide3" className="btn btn-circle">❯</a>
+                <div className="w-1/2 mx-auto mb-12 -mt-20 rounded-lg shadow-md lg:-mt-96 dark:bg-gray-500" >
+                    <div className='bg-color grid md:grid-cols-1 lg:grid-cols-2 gap-24'>
+                        <div className="space-y-2 p-6">
+                            <h1 className=" text-2xl font-semibold sm:text-3xl">The Best Activewear from the Nordstrom Anniversary Sale</h1>
+                            <h1 className=' text-2xl font-semibold sm:text-3xl dark:text-gray-100'>Pick Up the Day when do you like to purchase.</h1>
+                        </div>
+                        <div className="dark:text-gray-100 mr-6">
+                            <DayPicker
+                                mode='single'
+                                selected={selectedDate}
+                                onSelect={setSelectedDate}
+                            ></DayPicker>
+                            <p>You have selected date: {format(selectedDate, 'PP')}</p>
+                        </div>
                     </div>
                 </div>
-                <div id="slide3" className="carousel-item relative w-full">
-                    <img src={car2} alt='' className="w-full" />
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide2" className="btn btn-circle">❮</a>
-                        <a href="#slide4" className="btn btn-circle">❯</a>
-                    </div>
-                </div>
-                <div id="slide4" className="carousel-item relative w-full">
-                    <img src={car3} alt='' className="w-full" />
-                    <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-                        <a href="#slide3" className="btn btn-circle">❮</a>
-                        <a href="#slide1" className="btn btn-circle">❯</a>
-                    </div>
-                </div>
-            </div>
+            </section>
         </div>
     );
 };

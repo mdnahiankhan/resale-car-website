@@ -5,7 +5,7 @@ import photo from '../../assets/Images.jpg'
 const ProductsMarket = () => {
     return (
         <div>
-            <div className="hero bg-base-200 mb-4 ">
+            <div className="hero bg-base-200 mb-4 rounded">
                 <div className="hero-content flex-col lg:flex-row">
                     <img src={photo} className="max-w-sm mx-auto rounded-lg shadow-2xl" alt='' />
                     <div>

@@ -1,8 +1,9 @@
 import React from 'react';
 import photo from '../../../assets/Images.jpg'
+
 const Connects = () => {
     return (
-        <section className="p-6 dark:text-gray-100 mb-4"
+        <section className=" dark:text-gray-100 mb-4 rounded"
             style={{
                 background: `url(${photo})`
             }}

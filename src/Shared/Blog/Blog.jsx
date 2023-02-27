@@ -2,7 +2,7 @@ import React from 'react';
 
 const Blog = () => {
     return (
-        <section className='bg-violet-400 rounded-xl font-serif'>
+        <section className='max-w-[1440px] mx-auto bg-violet-400 rounded-xl font-serif m-6'>
             <div className='bg-gray-400 rounded-lg p-6'>
                 <h1 className="bg-white text-xl p-2 text-center rounded-lg font-bold">1. What are the different ways to manage a state in a React application?</h1>
                 <h3 className='bg-white mt-5 rounded-lg p-4 font-bold'>Answer: Every React component has a built-in state. This state is an object which stores the property values that belong to a component. State is able to keep data from different components in-sync because each state update re-renders all relevant components. The built-in way that React provides for setting component states is by using setState() and adding “local state” to a class. There are several other ways to manage states in React, including the use of: 1.Hooks 2.React Context API 3.Apollo Link State</h3>
