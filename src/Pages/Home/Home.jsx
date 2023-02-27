@@ -1,4 +1,5 @@
 import React from 'react';
+import HowGet from '../../Shared/Offered/HowGet';
 import Offered from '../../Shared/Offered/Offered';
 import Statistics from '../../Shared/States/Statistics';
 import Features from '../Features/Features';
@@ -21,6 +22,7 @@ const Home = () => {
             <Review></Review>
             <Features></Features>
             <Offered></Offered>
+            <HowGet></HowGet>
             <Getproducts></Getproducts>
             <Connects></Connects>
         </div>
