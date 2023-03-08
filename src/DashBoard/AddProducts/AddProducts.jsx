@@ -52,7 +52,7 @@ const AddProducts = () => {
     }
 
     return (
-        <div>
+        <div className='max-w-[1440px] mx-auto'>
             <h1>This is Add products</h1>
             <form className='w-96 p-7' onSubmit={handleSubmit(handleaddProduct)}>
                 <div className="form-control w-full max-w-xs">

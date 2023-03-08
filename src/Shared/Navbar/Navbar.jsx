@@ -15,7 +15,7 @@ const Navbar = () => {
         <li><Link className='text-white' to='/blog'>Blog</Link></li>
         {user?.uid ?
             <>
-                <li><Link className='' to='/dashboard'>DashBoard</Link></li>
+                <li><Link className='text-white' to='/dashboard'>DashBoard</Link></li>
                 <li><button className='btn btn-accent rounded-lg text-white' onClick={handleLogOut} >Sign Out</button></li>
             </> :
             <li><button className='btn btn-accent text-white'>
@@ -38,7 +38,7 @@ const Navbar = () => {
                     <Link className="btn btn-ghost normal-case text-xl text-white"> Resales Car Portal</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex  rounded-xl">
-                    <ul className="menu menu-horizontal p-0">
+                    <ul className="menu menu-horizontal p-2">
                         {menuItems}
                     </ul>
                 </div>
