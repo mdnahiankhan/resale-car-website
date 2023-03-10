@@ -14,11 +14,10 @@ const Banner = () => {
             <section>
                 <div className="car-image">
                     <div className=" container flex flex-col items-center px-4 py-16 pb-24 mx-auto text-center lg:pb-56 md:py-32 md:px-10 lg:px-32 dark:text-gray-100">
-                        <h1 className="text-5xl font-bold leading-none sm:text-6xl xl:max-w-3xl dark:text-gray-100">The Best Resales Car website wait for you which car you want.</h1>
-                        <p className="mt-6 mb-8 text-lg sm:mb-12 xl:max-w-3xl dark:text-gray-100">Cupiditate minima voluptate temporibus quia? Architecto beatae esse ab amet vero eaque explicabo!</p>
+                        <h1 className="text-xl font-bold leading-none sm:text-4xl xl:max-w-3xl dark:text-white mb-4">The Best Resales Car website wait for you which car you want.</h1>
                         <div className="flex flex-wrap justify-center gap-4">
-                            <button className="btn btn-outline btn-accent">Get started</button>
-                            <button className="btn btn-outline btn-primary">Learn more</button>
+                            <button className="btn btn-accent">Get started</button>
+                            <button className="btn btn-primary">Learn more</button>
                         </div>
                     </div>
                 </div>

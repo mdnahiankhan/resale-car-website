@@ -11,12 +11,12 @@ const Navbar = () => {
             .catch(error => console.error(error))
     }
     const menuItems = <React.Fragment>
-        <li><Link className='text-white' to='/'>Home</Link></li>
-        <li><Link className='text-white' to='/blog'>Blog</Link></li>
+        <li><Link className='text-black ' to='/'>Home</Link></li>
+        <li><Link className='text-black' to='/blog'>Blog</Link></li>
         {user?.uid ?
             <>
-                <li><Link className='text-white' to='/dashboard'>DashBoard</Link></li>
-                <li><button className='btn btn-accent rounded-lg text-white' onClick={handleLogOut} >Sign Out</button></li>
+                <li><Link className='text-black' to='/dashboard'>DashBoard</Link></li>
+                <li><button className='btn btn-accent rounded-lg text-black' onClick={handleLogOut} >Sign Out</button></li>
             </> :
             <li><button className='btn btn-accent text-white'>
                 <Link to='/login'>Login</Link></button></li>}
@@ -35,10 +35,10 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <img className="flex items-center justify-center w-12 h-12 rounded-full " src={image} alt="" />
-                    <Link className="btn btn-ghost normal-case text-xl text-white"> Resales Car Portal</Link>
+                    <Link className="btn btn-ghost normal-case text-xl text-black"> Resales Car Portal</Link>
                 </div>
                 <div className="navbar-center hidden lg:flex  rounded-xl">
-                    <ul className="menu menu-horizontal p-2">
+                    <ul className="menu menu-horizontal p-2 ">
                         {menuItems}
                     </ul>
                 </div>

@@ -3,9 +3,9 @@ import { FcTemplate, FcVoicePresentation, FcSms, FcMoneyTransfer, FcSelfServiceK
 import "../css/style.css"
 const HowGet = () => {
     return (
-        <div className='mt-4'>
-            <h1 className='ml-48 text-3xl font-bold'>How to buy your car with resales car portal?</h1>
-            <div className='max-w-[1440px] mx-auto 
+        <div className='mt-4 max-w-[1440px] mx-auto'>
+            <h1 className='text-3xl font-bold'>How to buy your car with resales car portal?</h1>
+            <div className=' 
          shadow-xl mt-4 mb-4 rounded-lg'>
                 <div className="flex flex-1 w-full h-64  box-shadow p-6">
                     <div className="grid h-auto flex-grow card rounded place-items-center">

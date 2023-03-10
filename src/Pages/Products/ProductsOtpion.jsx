@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 
 const ProductsOtpion = ({ product }) => {
     const { img, name, id } = product;
+    console.log(product);
     return (
         <div className="card w-96 bg-base-100 shadow-xl image-full m-4">
             <figure><img src={img} alt="Car" /></figure>

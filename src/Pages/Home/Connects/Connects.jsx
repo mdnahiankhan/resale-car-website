@@ -10,7 +10,7 @@ const Connects = () => {
         >
             <form novalidate="" className="container w-full max-w-xl p-8 mx-auto space-y-6 rounded-md shadow ng-untouched ng-pristine ng-valid text-white">
                 <h2 className="w-full text-3xl font-bold leading-tight text-center text-purple-600">Contact us</h2>
-                <h3 className='text-center text-4xl text-neutral'>Stay Connected With Us</h3>
+                <h3 className='text-center text-4xl text-purple-400'>Stay Connected With Us</h3>
                 <div>
                     <label for="name" className="block mb-1 ml-1 text-neutral ">Email Address</label>
                     <input id="name" type="text" placeholder="Your Email" required="" className="block w-full p-3 rounded-xl focus:outline-none focus:ring focus:ring-opacity-25 focus:ring-violet-400 text-black" />

@@ -4,7 +4,7 @@ import "../css/style.css"
 import image from '../../assets/images-car.jpeg';
 const Footer = () => {
     return (
-        <footer className="px-4 divide-y dark:text-gray-600 main-container">
+        <footer className="px-6 divide-y dark:text-gray-600 ">
             <div className="container flex flex-col justify-between py-10 mx-auto space-y-8 lg:flex-row lg:space-y-0">
                 <div className="lg:w-1/3">
                     <Link rel="noopener noreferrer" href="#" className="flex justify-center space-x-3 lg:justify-start">
@@ -16,7 +16,7 @@ const Footer = () => {
                 </div>
                 <div className="grid grid-cols-2 text-sm gap-x-3 gap-y-8 lg:w-2/3 sm:grid-cols-4">
                     <div className="space-y-3">
-                        <h3 className="tracking-wide uppercase dark:text-gray-50">Product</h3>
+                        <h3 className="tracking-wide uppercase dark:text-gray-900">Services</h3>
                         <ul className="space-y-1">
                             <li>
                                 <Link rel="noopener noreferrer" href="#">Features</Link>
@@ -33,7 +33,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className="space-y-3">
-                        <h3 className="tracking-wide uppercase dark:text-gray-50">Company</h3>
+                        <h3 className="tracking-wide uppercase dark:text-gray-900">Company</h3>
                         <ul className="space-y-1">
                             <li>
                                 <Link rel="noopener noreferrer" href="#">Privacy</Link>
@@ -44,7 +44,7 @@ const Footer = () => {
                         </ul>
                     </div>
                     <div className="space-y-3">
-                        <h3 className="uppercase dark:text-gray-50">Developers</h3>
+                        <h3 className="uppercase dark:text-gray-900">Developers</h3>
                         <ul className="space-y-1">
                             <li>
                                 <Link rel="noopener noreferrer" href="#">Engine Improve</Link>
