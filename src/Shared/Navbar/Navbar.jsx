@@ -11,19 +11,18 @@ const Navbar = () => {
             .catch(error => console.error(error))
     }
     const menuItems = <React.Fragment>
-        <li><Link className='text-black ' to='/'>Home</Link></li>
-        <li><Link className='text-black' to='/blog'>Blog</Link></li>
+        <li><Link className='text-black font-bold' to='/'>Home</Link></li>
+        <li><Link className='text-black font-bold' to='/blog'>Blog</Link></li>
         {user?.uid ?
             <>
-                <li><Link className='text-black' to='/dashboard'>DashBoard</Link></li>
-                <li><button className='btn btn-accent rounded-lg text-black' onClick={handleLogOut} >Sign Out</button></li>
+                <li><Link className='text-black font-bold' to='/dashboard'>DashBoard</Link></li>
+                <li><button className='btn btn-accent rounded-lg text-black font-bold' onClick={handleLogOut} >Sign Out</button></li>
             </> :
-            <li><button className='btn btn-accent text-white'>
+            <li><button className='btn btn-accent text-white font-bold'>
                 <Link to='/login'>Login</Link></button></li>}
     </React.Fragment>
     return (
-        <div className='bg-violet-400
-        '>
+        <div className='bg-violet-400'>
             <div className="max-w-[1440px] mx-auto navbar p-4  justify-between">
                 <div className="navbar-start">
                     <div className="dropdown">
